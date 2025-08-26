@@ -1,0 +1,31 @@
+<script>
+/*let user = {
+  name: "John",
+  age: 30,
+  sayHi() {
+    // "this" - это "текущий объект".
+    console.log(this.name, user.name);
+  }
+};
+user.sayHi();*/
+
+let user = {
+  name: "John",
+  age: 30,
+  sayHi() {
+    //console.log(user.name); // приведёт к ошибке
+    console.log(this, this.name, admin.name);
+  }
+};
+
+let admin = user;
+user = null; // перезапишем переменную для наглядности, теперь она не хранит ссылку на объект.
+admin.sayHi(); // TypeError: Cannot read property 'name' of null
+
+"use strict"; // не работает, вверху работает
+function sayHi() {
+  console.log('sayHi', this);
+}
+sayHi(); // undefined
+
+</script>
